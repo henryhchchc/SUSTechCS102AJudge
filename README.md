@@ -1,1 +1,1 @@
-# SUSTechCS102AJudge
+# SUSTech CS102A Judge
