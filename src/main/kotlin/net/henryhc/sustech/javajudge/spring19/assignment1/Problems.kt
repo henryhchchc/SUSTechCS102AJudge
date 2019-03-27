@@ -12,4 +12,4 @@ val problemsAssignment1 = problems(
 )
 
 @Suppress("unused")
-val problemsAssignment1Rejudge = problemsAssignment1.mapValues { it.value * 0.8 }
+val problemsAssignment1Rejudge = problemsAssignment1.mapValues { it.value * 0.9 }
