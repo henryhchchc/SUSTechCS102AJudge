@@ -1,4 +1,4 @@
-package net.henryhc.sustech.javajudge.spring19
+package net.henryhc.sustech.javajudge.TestCases
 
 import net.henryhc.sustech.javajudge.Submission
 import net.henryhc.sustech.javajudge.TestCase

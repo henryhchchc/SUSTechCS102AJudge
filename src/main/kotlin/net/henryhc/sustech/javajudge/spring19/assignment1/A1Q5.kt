@@ -1,7 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.Problem
-import net.henryhc.sustech.javajudge.spring19.StdinTestCase
+import net.henryhc.sustech.javajudge.TestCases.StdinTestCase
 
 private const val expectedOutput = """Enter the first number: Enter the second number: Sum of two numbers is 90
 Sum does not equal 100, loop repeats

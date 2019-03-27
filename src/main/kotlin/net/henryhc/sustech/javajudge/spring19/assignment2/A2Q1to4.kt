@@ -1,7 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment2
 
 import net.henryhc.sustech.javajudge.Problem
-import net.henryhc.sustech.javajudge.spring19.ArgsTestCase
+import net.henryhc.sustech.javajudge.TestCases.ArgsTestCase
 
 private fun a2q1Result(year: Int, sb: String, animal: String) = "$year is the year of $sb. Also $animal year."
 

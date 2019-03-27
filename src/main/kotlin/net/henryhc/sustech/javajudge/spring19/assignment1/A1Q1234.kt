@@ -1,7 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.Problem
-import net.henryhc.sustech.javajudge.spring19.ArgsTestCase
+import net.henryhc.sustech.javajudge.TestCases.ArgsTestCase
 
 val a1q1 = Problem("A1Q1", mapOf(
         ArgsTestCase("Case 1", "A1Q1", listOf("3"), "18.84\n28.26") to 0.2,
