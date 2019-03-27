@@ -32,11 +32,11 @@ class ArgsTestCase(
             proc.destroy()
             return TestCaseJudgeResult(0.0, "[${this.name}] Time out")
         }
-        val output = proc.inputStream.bufferedReader().readText()
-        return if (output.trim() == expected)
+        val output = proc.inputStream.bufferedReader().readLines().joinToString("\n") { it.trim() }.trim()
+        return if (output == expected)
             TestCaseJudgeResult(1.0, "[${this.name}] Nice Work")
         else TestCaseJudgeResult(0.0,
-                "[${this.name}] Wrong answer\nExpected:\n$expected\nActual:\n${output.trim()}")
+                "[${this.name}] Wrong answer\nExpected:\n$expected\nActual:\n$output")
     }
 
 }

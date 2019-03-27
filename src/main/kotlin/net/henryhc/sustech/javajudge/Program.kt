@@ -1,16 +1,10 @@
 package net.henryhc.sustech.javajudge
 
-import net.henryhc.sustech.javajudge.spring19.assignment1.*
+import net.henryhc.sustech.javajudge.spring19.assignment2.problemsAssignment2
+
 
 fun main(args: Array<String>) {
-    val problems = mapOf(
-            a1q1 to 20.0,
-            a1q2 to 20.0,
-            a1q3 to 20.0,
-            a1q4 to 20.0,
-            a1q5 to 20.0
-    )
-    val ass = Assignment("/home/henry/Desktop/Assignment 1/", problems)
+    val ass = Assignment(args[0], problemsAssignment2)
     val result = ass.judge()
     ass.writeGradeCsv(result.map { it.value })
     result.forEach { t, u ->

@@ -30,15 +30,16 @@ class StdinTestCase(
                 .redirectError(ProcessBuilder.Redirect.PIPE)
                 .start()
         proc.waitFor(2, TimeUnit.SECONDS)
-        inputFile.delete()
         if (proc.isAlive) {
             proc.destroy()
+            inputFile.delete()
             return TestCaseJudgeResult(0.0, "[${this.name}] Time out")
         }
-        val output = proc.inputStream.bufferedReader().readText()
-        return if (output.trim() == expected)
+        val output = proc.inputStream.bufferedReader().readLines().joinToString("\n") { it.trim() }.trim()
+        inputFile.delete()
+        return if (output == expected)
             TestCaseJudgeResult(1.0, "[${this.name}] Nice Work")
         else TestCaseJudgeResult(0.0,
-                "[${this.name}] Wrong answer\nExpected:\n$expected \nActual:\n${output.trim()}")
+                "[${this.name}] Wrong answer\nExpected:\n$expected\nActual:\n$output")
     }
 }
