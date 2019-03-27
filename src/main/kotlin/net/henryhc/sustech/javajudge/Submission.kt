@@ -19,7 +19,7 @@ class Submission(
     }
 
     fun writeFeedback(feedback: String) {
-        File(path, FeedbackFileName).writeText("<code>$feedback</code>", Charsets.UTF_8)
+        File(path, FeedbackFileName).writeText("<code>\n$feedback\n</code>", Charsets.UTF_8)
     }
 
     val files = File(this.path, AttachmentsFolderName).listFiles()
