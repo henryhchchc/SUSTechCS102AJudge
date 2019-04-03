@@ -3,6 +3,7 @@ package net.henryhc.sustech.javajudge.TestCases
 import net.henryhc.sustech.javajudge.Submission
 import net.henryhc.sustech.javajudge.TestCase
 import net.henryhc.sustech.javajudge.TestCaseJudgeResult
+import net.henryhc.sustech.javajudge.TimeLimit
 import java.util.concurrent.TimeUnit
 
 class StdinTestCase(
@@ -29,17 +30,18 @@ class StdinTestCase(
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .redirectError(ProcessBuilder.Redirect.PIPE)
                 .start()
-        proc.waitFor(2, TimeUnit.SECONDS)
+        proc.waitFor(TimeLimit, TimeUnit.SECONDS)
         if (proc.isAlive) {
             proc.destroy()
             inputFile.delete()
             return TestCaseJudgeResult(0.0, "[${this.name}] Time out")
         }
         val output = proc.inputStream.bufferedReader().readLines().joinToString("\n") { it.trim() }.trim()
+        val error = proc.errorStream.bufferedReader().readText()
         inputFile.delete()
         return if (output == expected)
             TestCaseJudgeResult(1.0, "[${this.name}] Nice Work")
         else TestCaseJudgeResult(0.0,
-                "[${this.name}] Wrong answer\nExpected:\n$expected\nActual:\n$output")
+                "[${this.name}] Wrong answer\nExpected:\n$expected\nActual:\n$output\nStderr:\n$error")
     }
 }
