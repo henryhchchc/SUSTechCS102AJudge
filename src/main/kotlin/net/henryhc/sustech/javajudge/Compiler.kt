@@ -4,10 +4,8 @@ import java.io.File
 import java.io.StringWriter
 import javax.tools.ToolProvider
 
-abstract class TestCase(
-        val name: String
-) {
-    protected fun compile(vararg files: File): Boolean {
+class Compiler {
+    fun compile(vararg files: File): Boolean {
         val compiler = ToolProvider.getSystemJavaCompiler()
         val fileManager = compiler.getStandardFileManager(null, null, Charsets.UTF_8)
         val compilationUnits = fileManager.getJavaFileObjectsFromFiles(files.asList())
@@ -22,6 +20,4 @@ abstract class TestCase(
         fileManager.close()
         return result
     }
-
-    abstract fun judge(submission: Submission): TestCaseJudgeResult
 }

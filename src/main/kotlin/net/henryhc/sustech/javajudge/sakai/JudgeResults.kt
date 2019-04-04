@@ -1,4 +1,6 @@
-package net.henryhc.sustech.javajudge
+package net.henryhc.sustech.javajudge.sakai
+
+import net.henryhc.sustech.javajudge.Problem
 
 data class TestCaseJudgeResult(
         val score: Double,

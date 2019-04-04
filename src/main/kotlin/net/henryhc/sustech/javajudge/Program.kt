@@ -1,5 +1,6 @@
 package net.henryhc.sustech.javajudge
 
+import net.henryhc.sustech.javajudge.sakai.Assignment
 import net.henryhc.sustech.javajudge.spring19.assignment3.problemsAssignment3
 
 

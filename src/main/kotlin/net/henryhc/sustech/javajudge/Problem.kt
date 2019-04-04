@@ -1,5 +1,9 @@
 package net.henryhc.sustech.javajudge
 
+import net.henryhc.sustech.javajudge.sakai.ProblemJudgeResult
+import net.henryhc.sustech.javajudge.sakai.Submission
+import net.henryhc.sustech.javajudge.testcases.TestCase
+
 class Problem(
         val name: String,
         val testCasesScores: Map<TestCase, Double> = emptyMap()

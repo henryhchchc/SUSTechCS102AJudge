@@ -1,7 +1,7 @@
-package net.henryhc.sustech.javajudge
+package net.henryhc.sustech.javajudge.sakai
 
+import net.henryhc.sustech.javajudge.Problem
 import java.io.File
-import java.util.*
 
 
 class Submission(

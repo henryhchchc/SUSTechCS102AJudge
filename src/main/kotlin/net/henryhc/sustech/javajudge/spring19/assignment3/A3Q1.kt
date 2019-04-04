@@ -1,7 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.Problem
-import net.henryhc.sustech.javajudge.TestCases.StdinTestCase
+import net.henryhc.sustech.javajudge.testcases.StdinTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
 

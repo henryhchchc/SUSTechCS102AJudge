@@ -1,5 +1,6 @@
-package net.henryhc.sustech.javajudge
+package net.henryhc.sustech.javajudge.sakai
 
+import net.henryhc.sustech.javajudge.Problem
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVPrinter
