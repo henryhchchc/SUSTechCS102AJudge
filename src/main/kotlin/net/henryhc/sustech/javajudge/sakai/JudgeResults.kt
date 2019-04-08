@@ -4,8 +4,18 @@ import net.henryhc.sustech.javajudge.Problem
 
 data class TestCaseJudgeResult(
         val score: Double,
-        val feedback: String
-)
+        val name: String,
+        val message: String,
+        var stderr: String = ""
+) {
+    val feedback
+        get() = StringBuilder("[$name]\n$message").apply {
+            if (stderr.isNotEmpty()) {
+                append("\nStderr:\n$stderr")
+            }
+        }.toString()
+}
+
 
 data class ProblemJudgeResult(
         val problem: Problem,

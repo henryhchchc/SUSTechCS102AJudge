@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.testcases.StdinTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
@@ -18,17 +19,17 @@ private fun a3q4Input(matrix: Array<Array<Int>>, vararg queries: String) = "${ma
 val a3q4 = Problem("A3Q4", testCases(
         StdinTestCase("Case 1", "A3Q4",
                 a3q4Input(m1, "2 1 3 3", "1 1 2 2", "2 1 2 4", "2 2 3 2", "1 1 1 1"),
-                "93\n40\n54\n31\n7") worth 0.2,
+                ExactMatchChecker("93\n40\n54\n31\n7")) worth 0.2,
         StdinTestCase("Case 2", "A3Q4",
                 a3q4Input(m1, "2 1 3 3", "1 1 2 2", "2 1 2 4"),
-                "93\n40\n54") worth 0.2,
+                ExactMatchChecker("93\n40\n54")) worth 0.2,
         StdinTestCase("Case 3", "A3Q4",
                 a3q4Input(m1, "2 1 2 4", "2 2 3 2", "1 1 1 1"),
-                "54\n31\n7") worth 0.2,
+                ExactMatchChecker("54\n31\n7")) worth 0.2,
         StdinTestCase("Case 4", "A3Q4",
                 a3q4Input(m1, "2 2 3 2", "1 1 1 1"),
-                "31\n7") worth 0.2,
+                ExactMatchChecker("31\n7")) worth 0.2,
         StdinTestCase("Case 5", "A3Q4",
                 a3q4Input(m1, "1 1 1 1"),
-                "7") worth 0.2
+                ExactMatchChecker("7")) worth 0.2
 ))

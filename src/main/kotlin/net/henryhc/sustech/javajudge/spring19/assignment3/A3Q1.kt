@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.testcases.StdinTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
@@ -28,8 +29,8 @@ private val m3 = arrayOf(
 )
 
 val a3q1 = Problem("A3Q1", testCases(
-        StdinTestCase("Case 1", "A3Q1", a3q1Input(m1, m2, m3), "1 1 1 1\n2 2\n2 2 3") worth 0.25,
-        StdinTestCase("Case 2", "A3Q1", a3q1Input(m1), "1 1 1 1") worth 0.25,
-        StdinTestCase("Case 3", "A3Q1", a3q1Input(m2), "2 2") worth 0.25,
-        StdinTestCase("Case 4", "A3Q1", a3q1Input(m3), "2 2 3") worth 0.25
+        StdinTestCase("Case 1", "A3Q1", a3q1Input(m1, m2, m3), ExactMatchChecker("1 1 1 1\n2 2\n2 2 3")) worth 0.25,
+        StdinTestCase("Case 2", "A3Q1", a3q1Input(m1), ExactMatchChecker("1 1 1 1")) worth 0.25,
+        StdinTestCase("Case 3", "A3Q1", a3q1Input(m2), ExactMatchChecker("2 2")) worth 0.25,
+        StdinTestCase("Case 4", "A3Q1", a3q1Input(m3), ExactMatchChecker("2 2 3")) worth 0.25
 ))

@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.testcases.StdinTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
@@ -23,7 +24,7 @@ private val m3 = arrayOf(
 )
 
 val a3q6 = Problem("A3Q6", testCases(
-        StdinTestCase("Case 1", "A3Q6", matrixWithSize(m1), "5") worth 1.0 / 3,
-        StdinTestCase("Case 2", "A3Q6", matrixWithSize(m2), "17") worth 1.0 / 3,
-        StdinTestCase("Case 3", "A3Q6", matrixWithSize(m3), "38") worth 1.0 / 3
+        StdinTestCase("Case 1", "A3Q6", matrixWithSize(m1), ExactMatchChecker("5")) worth 1.0 / 3,
+        StdinTestCase("Case 2", "A3Q6", matrixWithSize(m2), ExactMatchChecker("17")) worth 1.0 / 3,
+        StdinTestCase("Case 3", "A3Q6", matrixWithSize(m3), ExactMatchChecker("38")) worth 1.0 / 3
 ))

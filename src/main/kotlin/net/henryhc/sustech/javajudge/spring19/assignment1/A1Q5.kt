@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.testcases.StdinTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
@@ -29,5 +30,5 @@ private const val input = """34
 """
 
 val a1q5 = Problem("A1Q5", testCases(
-        StdinTestCase("Case 1", "A1Q5", input, expectedOutput) worth 1.0
+        StdinTestCase("Case 1", "A1Q5", input, ExactMatchChecker(expectedOutput)) worth 1.0
 ))

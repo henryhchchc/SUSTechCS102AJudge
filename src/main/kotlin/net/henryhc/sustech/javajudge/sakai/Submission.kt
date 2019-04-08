@@ -1,5 +1,8 @@
 package net.henryhc.sustech.javajudge.sakai
 
+import kotlinx.html.code
+import kotlinx.html.dom.create
+import kotlinx.html.dom.document
 import net.henryhc.sustech.javajudge.Problem
 import java.io.File
 
@@ -20,7 +23,7 @@ class Submission(
 
     fun writeFeedback(feedback: String) {
         File(path, FeedbackFileName).writeText(
-                "<code>\n$feedback\n</code>".replace(" ", "&nbsp;"),
+                "<code>$feedback</code>".replace(" ", "&nbsp;"),
                 Charsets.UTF_8
         )
     }
