@@ -8,5 +8,5 @@ class RegexChacker(
     override fun check(actual: String) =
             if (regex.matches(actual)) TestCaseJudgeResult(1.0, caseName, "Nice Work")
             else TestCaseJudgeResult(0.0, caseName,
-                    "Wrong answer\nYour output should match regular expression:\n${regex.pattern}\nActual:$actual")
+                    "Wrong answer\nYour output should match regular expression:\n${regex.pattern}\nActual:\n$actual")
 }
