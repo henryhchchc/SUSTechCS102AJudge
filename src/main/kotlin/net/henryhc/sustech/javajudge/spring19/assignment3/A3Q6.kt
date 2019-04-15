@@ -78,11 +78,11 @@ val a3q6 = Problem("A3Q6", testCasesAverage(
         StdinTestCase("Case 1", "A3Q6", matrixWithSize(m1), ExactMatchChecker("5")),
         StdinTestCase("Case 2", "A3Q6", matrixWithSize(m2), ExactMatchChecker("17")),
         StdinTestCase("Case 3", "A3Q6", matrixWithSize(m3), ExactMatchChecker("38")),
-        StdinTestCase("Case 4", "A3Q5", matrixWithSize(m4), ExactMatchChecker("15")),
-        StdinTestCase("Case 5", "A3Q5", matrixWithSize(m5), ExactMatchChecker("24")),
-        StdinTestCase("Case 6", "A3Q5", matrixWithSize(m6), ExactMatchChecker("45")),
-        StdinTestCase("Case 7", "A3Q5", matrixWithSize(m7), ExactMatchChecker("2")),
-        StdinTestCase("Case 8", "A3Q5", matrixWithSize(m8), ExactMatchChecker("0")),
-        StdinTestCase("Case 9", "A3Q5", matrixWithSize(m9), ExactMatchChecker("2")),
-        StdinTestCase("Case 10", "A3Q5", matrixWithSize(m10), ExactMatchChecker("308"))
+        StdinTestCase("Case 4", "A3Q6", matrixWithSize(m4), ExactMatchChecker("15")),
+        StdinTestCase("Case 5", "A3Q6", matrixWithSize(m5), ExactMatchChecker("24")),
+        StdinTestCase("Case 6", "A3Q6", matrixWithSize(m6), ExactMatchChecker("45")),
+        StdinTestCase("Case 7", "A3Q6", matrixWithSize(m7), ExactMatchChecker("2")),
+        StdinTestCase("Case 8", "A3Q6", matrixWithSize(m8), ExactMatchChecker("0")),
+        StdinTestCase("Case 9", "A3Q6", matrixWithSize(m9), ExactMatchChecker("2")),
+        StdinTestCase("Case 10", "A3Q6", matrixWithSize(m10), ExactMatchChecker("308"))
 ))

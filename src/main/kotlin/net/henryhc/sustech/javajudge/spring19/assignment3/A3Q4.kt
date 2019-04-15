@@ -47,7 +47,7 @@ val a3q4 = Problem("A3Q4", testCasesAverage(
                 a3q4Input(m1, "1 1 1 1"),
                 ExactMatchChecker("7")),
 
-        StdinTestCase("Matrix 2, 20 queries", "A3Q3",
+        StdinTestCase("Matrix 2, 20 queries", "A3Q4",
                 a3q4Input(m2, "0 0 0 1", "0 0 1 0", "1 1 2 3", "1 1 2 2", "1 2 4 5",
                         "2 1 4 5", "1 3 3 5", "1 3 4 3", "1 0 1 4", "1 3 2 4",
                         "2 4 4 4", "1 3 2 4", "4 4 4 5", "4 1 4 2", "4 1 4 3",
@@ -58,13 +58,13 @@ val a3q4 = Problem("A3Q4", testCasesAverage(
                 )
         ),
 
-        StdinTestCase("Matrix 2, 10 queries", "A3Q3",
+        StdinTestCase("Matrix 2, 10 queries", "A3Q4",
                 a3q4Input(m2, "0 0 0 1", "0 0 1 0", "1 1 2 3", "1 1 2 2", "1 2 4 5",
                         "2 1 4 5", "1 3 3 5", "1 3 4 3", "1 0 1 4", "1 3 2 4"),
                 ExactMatchChecker("77\n267\n1167\n912\n1645\n1168\n891\n267\n666\n330")
         ),
 
-        StdinTestCase("Matrix 2, 10 queries v2", "A3Q3",
+        StdinTestCase("Matrix 2, 10 queries v2", "A3Q4",
                 a3q4Input(m2, "2 4 4 4", "1 3 2 4", "4 4 4 5", "4 1 4 2", "4 1 4 3",
                         "2 2 2 3", "2 2 2 2", "0 0 4 5", "0 1 0 4", "3 3 3 4"),
                 ExactMatchChecker("122\n330\n77\n25\n36\n554\n321\n2876\n243\n5")
