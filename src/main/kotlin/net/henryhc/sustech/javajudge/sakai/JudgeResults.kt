@@ -12,7 +12,9 @@ data class TestCaseJudgeResult(
         get() = StringBuilder("[$name]\n$message").apply {
             if (stderr.isNotEmpty()) {
                 append("\nStderr:\n${stderr.let {
-                    if (it.length > 300) it.replaceRange(300..it.length, "...") else it
+                    if (it.length > 300)
+                        it.replaceRange(300 until it.length, "...")
+                    else it
                 }}")
             }
         }.toString()
