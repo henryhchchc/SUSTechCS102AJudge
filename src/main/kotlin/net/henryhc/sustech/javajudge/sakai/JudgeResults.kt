@@ -11,7 +11,9 @@ data class TestCaseJudgeResult(
     val feedback
         get() = StringBuilder("[$name]\n$message").apply {
             if (stderr.isNotEmpty()) {
-                append("\nStderr:\n$stderr")
+                append("\nStderr:\n${stderr.let {
+                    if (it.length > 300) it.replaceRange(300..it.length, "...") else it
+                }}")
             }
         }.toString()
 }
