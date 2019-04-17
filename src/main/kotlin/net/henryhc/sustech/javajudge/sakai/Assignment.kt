@@ -51,9 +51,9 @@ class Assignment(
     fun judge(beforeEachJudge: (Submission) -> Unit = {}): Map<Submission, SubmissionJudgeResult> = this.submissions.map {
         GlobalScope.async {
             channel.receive()
-            val result = it to it.judge(problemsWithScore, beforeEachJudge)
-            channel.send(1)
-            result
+            (it to it.judge(problemsWithScore, beforeEachJudge)).apply {
+                channel.send(1)
+            }
         }
     }.map { runBlocking { it.await() } }.toMap()
 
