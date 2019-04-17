@@ -15,6 +15,7 @@ fun main(args: Array<String>) {
         System.err.println("Not a directory: ${args[0]}")
         exitProcess(-1)
     }
+    println("Judging using $concurrentJudgingCount concurrent jobs.")
     sakaiI18n = SakaiI18n.zh_CN
     val ass = Assignment(args[0], problemsAssignment3)
     val result = ass.judge { println("Judging ${it.student.name}") }

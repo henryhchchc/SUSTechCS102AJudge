@@ -1,6 +1,9 @@
 package net.henryhc.sustech.javajudge.sakai
 
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.concurrentJudgingCount
 import net.henryhc.sustech.javajudge.sakaiI18n
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
@@ -8,6 +11,7 @@ import org.apache.commons.csv.CSVPrinter
 import org.apache.commons.csv.QuoteMode
 import java.io.File
 import java.io.StringWriter
+import java.util.concurrent.Semaphore
 
 class Assignment(
         val path: String,
@@ -19,6 +23,8 @@ class Assignment(
     private val csvFormat = CSVFormat.DEFAULT.withSkipHeaderRecord().withQuoteMode(QuoteMode.ALL)
             .withHeader(*i18n.csvHeader)
 
+    private val channel: Channel<Int> = Channel(concurrentJudgingCount)
+
     init {
         val csvFileLines = File(path, GradeFileName).readLines()
         this.csvFirstTwoLines = csvFileLines.take(2).joinToString("\n")
@@ -26,11 +32,11 @@ class Assignment(
                 .let { CSVParser.parse(it, csvFormat) }.map {
                     val studentInfo = StudentInfo(
                             it.get(i18n.studentIdKey),
-                            "${it.get(i18n.firstNameKey)}, ${it.get(i18n.lastNameKey)}"
+                            "${it.get(i18n.lastNameKey)}, ${it.get(i18n.firstNameKey)}"
                     )
                     val submissionPath = File(
                             path,
-                            "${it.get(i18n.firstNameKey)}, ${it.get(i18n.lastNameKey)}(${it.get(i18n.studentIdKey)})"
+                            "${it.get(i18n.lastNameKey)}, ${it.get(i18n.firstNameKey)}(${it.get(i18n.studentIdKey)})"
                     ).absolutePath
                     Submission(
                             submissionPath,
@@ -39,11 +45,17 @@ class Assignment(
                             it.get(i18n.submissionTimeKey)
                     )
                 }
+        repeat(concurrentJudgingCount) { runBlocking { channel.send(1) } }
     }
 
     fun judge(beforeEachJudge: (Submission) -> Unit = {}): Map<Submission, SubmissionJudgeResult> = this.submissions.map {
-        it to it.judge(this.problemsWithScore, beforeEachJudge)
-    }.toMap()
+        GlobalScope.async {
+            channel.receive()
+            val result = it to it.judge(problemsWithScore, beforeEachJudge)
+            channel.send(1)
+            result
+        }
+    }.map { runBlocking { it.await() } }.toMap()
 
     fun writeGradeCsv(results: List<SubmissionJudgeResult>) {
         val writer = StringWriter()
