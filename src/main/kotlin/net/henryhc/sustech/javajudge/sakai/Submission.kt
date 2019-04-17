@@ -1,8 +1,5 @@
 package net.henryhc.sustech.javajudge.sakai
 
-import kotlinx.html.code
-import kotlinx.html.dom.create
-import kotlinx.html.dom.document
 import net.henryhc.sustech.javajudge.Problem
 import java.io.File
 
@@ -13,6 +10,8 @@ class Submission(
         val isLateSubmission: Boolean,
         val timeStampStr: String
 ) {
+    private val i18n = SakaiI18n.zh_CN
+
     fun judge(problemsWithScore: Map<Problem, Double>): SubmissionJudgeResult {
         println("Judging ${this.student.name}")
         return SubmissionJudgeResult(
@@ -28,10 +27,9 @@ class Submission(
         )
     }
 
-    val files = File(this.path, AttachmentsFolderName).listFiles()
+    val files = File(this.path, i18n.submissionAttachmentFolderName).listFiles()
 
     companion object {
-        private const val AttachmentsFolderName: String = "提交作业的附件"
         private const val FeedbackFileName: String = "comments.txt"
     }
 }

@@ -12,22 +12,31 @@ class Assignment(
         val path: String,
         val problemsWithScore: Map<Problem, Double> = emptyMap()
 ) {
+    private val i18n = SakaiI18n.zh_CN
     private val submissions: List<Submission>
     private val csvFirstTwoLines: String
     private val csvFormat = CSVFormat.DEFAULT.withSkipHeaderRecord().withQuoteMode(QuoteMode.ALL)
-            .withHeader(
-                    "显示ID", "ID", "姓", "名",
-                    "分数", "提交时间", "迟交"
-            )
+            .withHeader(*i18n.csvHeader)
 
     init {
         val csvFileLines = File(path, GradeFileName).readLines()
         this.csvFirstTwoLines = csvFileLines.take(2).joinToString("\n")
         this.submissions = csvFileLines.drop(2).joinToString("\n")
                 .let { CSVParser.parse(it, csvFormat) }.map {
-                    val studentInfo = StudentInfo(it.get("ID"), "${it.get("姓")}, ${it.get("名")}")
-                    val submissionPath = File(path, "${it.get("姓")}, ${it.get("名")}(${it.get("ID")})").absolutePath
-                    Submission(submissionPath, studentInfo, it.get("迟交") == "迟交", it.get("提交时间"))
+                    val studentInfo = StudentInfo(
+                            it.get(i18n.studentIdKey),
+                            "${it.get(i18n.firstNameKey)}, ${it.get(i18n.lastNameKey)}"
+                    )
+                    val submissionPath = File(
+                            path,
+                            "${it.get(i18n.firstNameKey)}, ${it.get(i18n.lastNameKey)}(${it.get(i18n.studentIdKey)})"
+                    ).absolutePath
+                    Submission(
+                            submissionPath,
+                            studentInfo,
+                            it.get(i18n.isLateSubmissionKey) == i18n.lateSubmissionText,
+                            it.get(i18n.submissionTimeKey)
+                    )
                 }
     }
 
@@ -38,7 +47,7 @@ class Assignment(
     fun writeGradeCsv(results: List<SubmissionJudgeResult>) {
         val writer = StringWriter()
         val csvWriter = CSVPrinter(writer, csvFormat)
-        csvWriter.printRecord("显示ID", "ID", "姓", "名", "分数", "提交时间", "迟交")
+        csvWriter.printRecord(*i18n.csvHeader)
         results.forEach {
             csvWriter.printRecord(
                     it.submission.student.id,
@@ -47,7 +56,7 @@ class Assignment(
                     it.submission.student.name.split(", ")[1],
                     String.format("%.1f", it.score),
                     it.submission.timeStampStr,
-                    if (it.submission.isLateSubmission) "迟交" else "按时"
+                    if (it.submission.isLateSubmission) i18n.lateSubmissionText else i18n.onTimeSubmissionText
             )
         }
         csvWriter.flush()
