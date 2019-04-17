@@ -13,8 +13,8 @@ class Submission(
 ) {
     private val i18n = sakaiI18n
 
-    fun judge(problemsWithScore: Map<Problem, Double>): SubmissionJudgeResult {
-        println("Judging ${this.student.name}")
+    fun judge(problemsWithScore: Map<Problem, Double>, beforeJudge: (Submission) -> Unit = {}): SubmissionJudgeResult {
+        beforeJudge(this)
         return SubmissionJudgeResult(
                 this,
                 problemsWithScore.map { it.key.judge(this) to it.value }.toMap()

@@ -41,8 +41,8 @@ class Assignment(
                 }
     }
 
-    fun judge(): Map<Submission, SubmissionJudgeResult> = this.submissions.map {
-        it to it.judge(this.problemsWithScore)
+    fun judge(beforeEachJudge: (Submission) -> Unit = {}): Map<Submission, SubmissionJudgeResult> = this.submissions.map {
+        it to it.judge(this.problemsWithScore, beforeEachJudge)
     }.toMap()
 
     fun writeGradeCsv(results: List<SubmissionJudgeResult>) {
