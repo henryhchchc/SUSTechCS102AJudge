@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.sakai
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.sakaiI18n
 import java.io.File
 
 
@@ -10,7 +11,7 @@ class Submission(
         val isLateSubmission: Boolean,
         val timeStampStr: String
 ) {
-    private val i18n = SakaiI18n.zh_CN
+    private val i18n = sakaiI18n
 
     fun judge(problemsWithScore: Map<Problem, Double>): SubmissionJudgeResult {
         println("Judging ${this.student.name}")

@@ -1,6 +1,7 @@
 package net.henryhc.sustech.javajudge.sakai
 
 import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.sakaiI18n
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVPrinter
@@ -12,7 +13,7 @@ class Assignment(
         val path: String,
         val problemsWithScore: Map<Problem, Double> = emptyMap()
 ) {
-    private val i18n = SakaiI18n.zh_CN
+    private val i18n = sakaiI18n
     private val submissions: List<Submission>
     private val csvFirstTwoLines: String
     private val csvFormat = CSVFormat.DEFAULT.withSkipHeaderRecord().withQuoteMode(QuoteMode.ALL)
