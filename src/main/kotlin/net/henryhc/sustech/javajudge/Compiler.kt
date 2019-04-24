@@ -5,10 +5,10 @@ import java.io.StringWriter
 import javax.tools.ToolProvider
 
 class Compiler {
-    fun compile(vararg files: File): Boolean {
+    fun compile(files: List<File>): Boolean {
         val compiler = ToolProvider.getSystemJavaCompiler()
         val fileManager = compiler.getStandardFileManager(null, null, Charsets.UTF_8)
-        val compilationUnits = fileManager.getJavaFileObjectsFromFiles(files.asList())
+        val compilationUnits = fileManager.getJavaFileObjectsFromFiles(files)
         val result = compiler.getTask(
                 StringWriter(),
                 fileManager,

@@ -2,7 +2,7 @@ package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.ArgsTestCase
+import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.worth
 

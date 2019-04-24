@@ -3,6 +3,7 @@ package net.henryhc.sustech.javajudge
 import net.henryhc.sustech.javajudge.sakai.Assignment
 import net.henryhc.sustech.javajudge.sakai.SakaiI18n
 import net.henryhc.sustech.javajudge.spring19.assignment3.problemsAssignment3
+import net.henryhc.sustech.javajudge.spring19.assignment4.problemsAssignment4
 import java.io.File
 import kotlin.system.exitProcess
 
@@ -17,7 +18,7 @@ fun main(args: Array<String>) {
     }
     println("Judging using $concurrentJudgingCount concurrent jobs.")
     sakaiI18n = SakaiI18n.zh_CN
-    val ass = Assignment(args[0], problemsAssignment3)
+    val ass = Assignment(args[0], problemsAssignment4)
     val result = ass.judge { println("Judging ${it.student.name}") }
     ass.writeGradeCsv(result.map { it.value })
     result.forEach { t, u ->
