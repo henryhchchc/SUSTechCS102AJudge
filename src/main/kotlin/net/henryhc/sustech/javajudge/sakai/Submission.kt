@@ -28,8 +28,8 @@ class Submission(
         )
     }
 
-    val attachementDirectory = File(this.path, i18n.submissionAttachmentFolderName)
-    val files = attachementDirectory.listFiles()
+    val attachmentsDirectory = File(this.path, i18n.submissionAttachmentFolderName)
+    val files = attachmentsDirectory.listFiles() ?: emptyArray<File>()
 
     companion object {
         private const val FeedbackFileName: String = "comments.txt"

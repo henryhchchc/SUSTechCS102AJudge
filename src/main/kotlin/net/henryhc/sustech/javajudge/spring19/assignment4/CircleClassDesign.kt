@@ -5,6 +5,7 @@ import net.henryhc.sustech.javajudge.testCasesAverage
 import net.henryhc.sustech.javajudge.testcases.classdesign.FieldTestCase
 import net.henryhc.sustech.javajudge.testcases.classdesign.GetterTestCase
 import net.henryhc.sustech.javajudge.testcases.classdesign.MethodTestCase
+import net.henryhc.sustech.javajudge.testcases.classdesign.SetterTestCase
 
 val circleClassDesign = Problem("Circle class design", testCasesAverage(
         MethodTestCase("toString method", setOf("Course"),
@@ -27,7 +28,7 @@ val circleClassDesign = Problem("Circle class design", testCasesAverage(
                             "Course", it.key, it.value),
                     GetterTestCase("${it.key} getter", setOf("Course"),
                             "Course", it.key, it.value),
-                    GetterTestCase("${it.key} setter", setOf("Course"),
+                    SetterTestCase("${it.key} setter", setOf("Course"),
                             "Course", it.key, it.value)
             )
         }.flatten().toTypedArray()

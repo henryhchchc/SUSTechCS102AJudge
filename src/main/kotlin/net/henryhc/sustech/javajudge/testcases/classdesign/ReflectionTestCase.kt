@@ -23,7 +23,7 @@ abstract class ReflectionTestCase(
             return TestCaseJudgeResult(0.0, this.name, "Compile failed")
         }
         return try {
-            val clazz = submission.attachementDirectory.toURI().toURL()
+            val clazz = submission.attachmentsDirectory.toURI().toURL()
                     .let { arrayOf(it) }
                     .let { URLClassLoader(it) }
                     .loadClass(classNameToCheck)
