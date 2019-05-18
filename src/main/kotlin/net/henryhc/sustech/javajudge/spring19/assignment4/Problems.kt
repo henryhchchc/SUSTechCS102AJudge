@@ -4,5 +4,6 @@ import net.henryhc.sustech.javajudge.problems
 import net.henryhc.sustech.javajudge.worth
 
 val problemsAssignment4 = problems(
-    circleClassDesign worth 50.0
+        circleClassDesign worth 70.0,
+        manualJudge worth 30.0
 )

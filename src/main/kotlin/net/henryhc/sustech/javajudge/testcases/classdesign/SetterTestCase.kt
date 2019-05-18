@@ -15,13 +15,13 @@ class SetterTestCase(name: String,
         val getter = clazz.declaredMethods
                 .singleOrNull {
                     it.name == "set${fieldName.capitalize()}"
-                            && it.returnType == Unit::class.java
+                            && it.returnType == Void.TYPE
                             && it.parameterTypes!!.contentEquals(arrayOf(fieldType))
                             && it.modifiers.and(modifier) != 0
                 }
         return if (getter == null) {
             TestCaseJudgeResult(0.0, this.name,
-                    "Required setter for $fieldName not found.")
+                    "Required setter for $fieldName (set${fieldName.capitalize()}) not found.")
         } else {
             TestCaseJudgeResult(1.0, this.name, "Nice Work")
         }

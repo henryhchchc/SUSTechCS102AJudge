@@ -21,7 +21,7 @@ class GetterTestCase(name: String,
                 }
         return if (getter == null) {
             TestCaseJudgeResult(0.0, this.name,
-                    "Required getter for $fieldName not found.")
+                    "Required getter for $fieldName (get${fieldName.capitalize()}) not found.")
         } else {
             TestCaseJudgeResult(1.0, this.name, "Nice Work")
         }
