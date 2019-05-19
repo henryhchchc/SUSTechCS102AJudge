@@ -42,7 +42,7 @@ data class SubmissionJudgeResult(
     val score
         get() = (problemResultsWithWeight
                 .map { it.key.score * it.value }.sum() * (if (submission.isLateSubmission) 0.5 else 1.0)
-                ).clip(0.0, 100.0)
+                ).clip(0.0, 1000.0)
     val feedback get() = problemResultsWithWeight.map { it.key.feedback }.joinToString("\n\n")
 }
 
