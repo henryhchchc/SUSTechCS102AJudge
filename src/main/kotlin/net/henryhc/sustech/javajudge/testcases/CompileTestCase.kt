@@ -18,7 +18,7 @@ class CompileTestCase(name: String,
         if (!this.compiler.compile(files)) {
             return TestCaseJudgeResult(0.0, this.name, "Compile failed")
         }
-        return TestCaseJudgeResult(1.0, this.name, "Well Done")
+        return TestCaseJudgeResult(1.0, this.name, "Success")
     }
 }
 

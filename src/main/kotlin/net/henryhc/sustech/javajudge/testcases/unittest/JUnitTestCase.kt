@@ -7,6 +7,7 @@ import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder
 import org.junit.platform.launcher.core.LauncherFactory
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener
+import org.junit.platform.launcher.listeners.TestExecutionSummary
 import java.net.URLClassLoader
 
 class JUnitTestCase(
@@ -30,10 +31,17 @@ class JUnitTestCase(
         val score = 1.0 * summary.testsSucceededCount / summary.testsFoundCount
         val message = "${summary.testsSucceededCount} of ${summary.testsFoundCount} Test cases passed\n" +
                 if (summary.failures.any()) {
-                    "Failed Cases:\n${summary.failures.joinToString("\n") { it.testIdentifier.displayName }}\n"
+                    "Failed Cases:\n${generateFailTestCasesMessage(summary.failures)}\n"
                 } else {
                     "\n"
                 }
         return TestCaseJudgeResult(score, this.name, message)
     }
+
+    private fun generateFailTestCasesMessage(failures: List<TestExecutionSummary.Failure>) =
+            failures.joinToString("\n\n") {
+                "${it.testIdentifier.displayName}\n" +
+                        "----------\n" +
+                        it.exception.toString()
+            }
 }
