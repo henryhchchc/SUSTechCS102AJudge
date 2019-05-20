@@ -13,7 +13,7 @@ import java.net.URLClassLoader
 
 class JUnitTestCase(
         name: String,
-        val testClassName: String
+        private val testClassName: String
 ) : TestCase(name) {
     override fun judge(submission: Submission): TestCaseJudgeResult {
         val launcher = LauncherFactory.create()
