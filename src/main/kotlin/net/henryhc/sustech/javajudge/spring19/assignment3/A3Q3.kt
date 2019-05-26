@@ -1,6 +1,6 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
-import net.henryhc.sustech.javajudge.Problem
+import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.RegexChacker
 import net.henryhc.sustech.javajudge.testCasesAverage
 import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase

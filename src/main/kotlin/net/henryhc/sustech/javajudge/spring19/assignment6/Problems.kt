@@ -1,4 +1,4 @@
-package net.henryhc.sustech.javajudge.spring19.assignment5
+package net.henryhc.sustech.javajudge.spring19.assignment6
 
 import net.henryhc.sustech.javajudge.*
 import net.henryhc.sustech.javajudge.sakai.Problem
@@ -7,7 +7,7 @@ import net.henryhc.sustech.javajudge.testcases.filemarker.FileMarkerTestCase
 import net.henryhc.sustech.javajudge.testcases.unittest.JUnitTestCase
 
 private val compileProblem = Problem("Compilation (Not counted for score)", testCasesAverage(
-        CompileTestCase("All files", setOf("BankAccount", "BankService", "Customer", "Gender"))
+        CompileTestCase("All files", setOf("ConcreteHotel", "Day", "Hotel", "LuxuryRoom", "OrdinaryRoom", "Room"))
 ))
 
 private val manualFixPenalty = Problem("Manual fix penalty", testCasesAverage(
@@ -17,10 +17,10 @@ private val manualFixPenalty = Problem("Manual fix penalty", testCasesAverage(
 ))
 
 private val unitTestJudge = Problem("Unit test judge", testCases(
-        JUnitTestCase("JUnit provided by Prof. Liu", "A5Test") worth 1.0
+        JUnitTestCase("JUnit provided by Ms. Zhu", "A6Test") worth 1.0
 ))
 
-val problemsAssignment5 = problems(
+val problemsAssignment6 = problems(
         compileProblem worth 0.00,
         unitTestJudge worth 120.0,
         manualFixPenalty worth -10.0

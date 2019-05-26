@@ -8,6 +8,7 @@ import kotlin.system.exitProcess
 
 
 fun main(args: Array<String>) {
+
     if (args.size != 1) {
         System.err.println("Usage: java -jar <jar-file-name> <sakai-directory>")
         exitProcess(1)
@@ -15,16 +16,13 @@ fun main(args: Array<String>) {
         System.err.println("Not a directory: ${args[0]}")
         exitProcess(-1)
     }
+
     println("Judging using $concurrentJudgingCount concurrent jobs.")
     sakaiI18n = SakaiI18n.zh_CN
-    val ass = Assignment(args[0], problemsAssignment5)
-    val result = ass.judge { println("Judging ${it.student.name}") }
-    ass.writeGradeCsv(result.map { it.value })
-    result.forEach { t, u ->
-        t.writeFeedback(u.feedback)
-//        println(t.student.name)
-//        println(u.score)
-//        println(u.feedback)
-    }
+
+    val assignment = Assignment(args[0], problemsAssignment5)
+    val result = assignment.judge { println("Judging ${it.student.name}") }
+    assignment.writeGradeCsv(result.map { it.value })
+    result.forEach { (t, u) -> t.writeFeedback(u.feedback) }
     println("Done")
 }

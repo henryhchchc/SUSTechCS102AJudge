@@ -1,5 +1,6 @@
 package net.henryhc.sustech.javajudge
 
+import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.testcases.TestCase
 
 infix fun TestCase.worth(score: Double) = this to score
