@@ -2,8 +2,8 @@ package net.henryhc.sustech.javajudge.answercheckers
 
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 
-class RegexChacker(
-        val regex: Regex,
+class RegexChecker(
+        private val regex: Regex,
         override var caseName: String = "") : AnswerChecker {
     override fun check(actual: String) =
             if (regex.matches(actual)) TestCaseJudgeResult(1.0, caseName, "Nice Work")

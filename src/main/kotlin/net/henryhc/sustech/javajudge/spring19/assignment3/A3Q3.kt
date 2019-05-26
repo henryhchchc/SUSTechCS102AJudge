@@ -1,11 +1,11 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.sakai.Problem
-import net.henryhc.sustech.javajudge.answercheckers.RegexChacker
+import net.henryhc.sustech.javajudge.answercheckers.RegexChecker
 import net.henryhc.sustech.javajudge.testCasesAverage
 import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
 
-private fun a3q3Checker(matrix: Array<Array<Int>>) = RegexChacker(
+private fun a3q3Checker(matrix: Array<Array<Int>>) = RegexChecker(
         matrix.joinToString("\\n") { it.joinToString("\\s+") { it1 -> it1.toString() } }.toRegex()
 )
 

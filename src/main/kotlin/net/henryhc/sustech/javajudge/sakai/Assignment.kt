@@ -34,7 +34,7 @@ class Assignment(
         repeat(concurrentJudgingCount) { runBlocking { channel.send(1) } }
     }
 
-    fun judge(beforeEachJudge: (Submission) -> Unit = {}): Map<Submission, SubmissionJudgeResult> = this.submissions.map {
+    fun judge(beforeEachJudge: (Submission) -> Unit = {}) = this.submissions.map {
         GlobalScope.async {
             channel.receive()
             (it to it.judge(problemsWithScoreMap, beforeEachJudge)).apply {

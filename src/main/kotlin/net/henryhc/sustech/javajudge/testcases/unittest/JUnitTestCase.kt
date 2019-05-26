@@ -16,21 +16,15 @@ class JUnitTestCase(
         private val testClassName: String
 ) : TestCase(name) {
     override fun judge(submission: Submission): TestCaseJudgeResult {
-        val launcher = LauncherFactory.create()
+        val config = LauncherConfig.builder()
+                .build()
+        val launcher = LauncherFactory.create(config)
         val summary = submission.attachmentsDirectory.toURI().toURL()
                 .let { URLClassLoader(arrayOf(it)) }
                 .loadClass(testClassName)
-                .let {
-                    LauncherDiscoveryRequestBuilder.request()
-                            .selectors(selectClass(it))
-                            .build()
-                }
+                .let { LauncherDiscoveryRequestBuilder.request().selectors(selectClass(it)).build() }
                 .let { launcher.discover(it) }
-                .let {
-                    SummaryGeneratingListener().apply {
-                        launcher.execute(it, this)
-                    }.summary
-                }
+                .let { SummaryGeneratingListener().apply { launcher.execute(it, this) }.summary }
         val score = 1.0 * summary.testsSucceededCount / summary.testsFoundCount
         val message = "${summary.testsSucceededCount} of ${summary.testsFoundCount} Test cases passed\n" +
                 if (summary.failures.any()) {
@@ -43,8 +37,6 @@ class JUnitTestCase(
 
     private fun generateFailTestCasesMessage(failures: List<TestExecutionSummary.Failure>) =
             failures.joinToString("\n\n") {
-                "${it.testIdentifier.displayName}\n" +
-                        "----------\n" +
-                        it.exception.toString()
+                "${it.testIdentifier.displayName}\n----------\n${it.exception}"
             }
 }
