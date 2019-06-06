@@ -19,9 +19,9 @@ fun main(args: Array<String>) {
     }
 
     println("Judging using $concurrentJudgingCount concurrent jobs.")
-    sakaiI18n = SakaiI18n.en_US
+    sakaiI18n = SakaiI18n.zh_CN
 
-    val assignment = Assignment(args[0], problemsAssignment5)
+    val assignment = Assignment(args[0], problemsAssignment6)
     val result = assignment.judge { println("Judging ${it.student.name}") }
     assignment.writeGradeCsv(result.map { it.value })
     result.forEach { (t, u) -> t.writeFeedback(u.feedback) }
