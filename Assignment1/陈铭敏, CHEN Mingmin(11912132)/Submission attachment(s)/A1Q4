@@ -1,0 +1,24 @@
+public class A1Q4{
+    public static void main (String[] args){
+float time=0;
+float cumulativeAmount=0;
+float singleAmount=0;
+time=1;
+if (singleAmount>=8000)
+     System.out.print("diamond");
+     if(singleAmount >=3000
+     System.out.print("gold");}
+     if(singleAmount>=1000)
+     System.out.print("silver");
+
+time>=10;
+if(cumulativeAmount>=5000)
+    System.out.print("diamond");
+time>=5;
+    if(cumulativeAmount>=2000)
+    System.out.print("gold");
+time>=2;
+    if(cumulativeAmount>=800)
+    System.out.print("silver")
+else
+    System.out.print("none")

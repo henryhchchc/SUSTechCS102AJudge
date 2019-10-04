@@ -1,0 +1,14 @@
+class A1Q1 {
+        public static void main(String[] args) {
+        string name=0;
+        int studentNumber=0;
+                System.out.print("Enter name: and student number:");{
+        if(studentNumber<=11500000)
+                System.out.println("the wrong id");
+        if(studentNumber>=11999999)
+                System.out.println("the wrong id");
+        else
+                    System.out.printf(name+",welcome to our restaurant!");}
+
+    }
+}
