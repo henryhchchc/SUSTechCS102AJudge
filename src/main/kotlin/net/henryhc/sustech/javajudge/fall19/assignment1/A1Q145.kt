@@ -24,13 +24,13 @@ val a1q4 = Problem("A1Q4", testCases(
         ArgsTestCase("Case 7", "A1Q4", listOf("7999"), ExactMatchChecker("Gold")) worth 0.1,
         ArgsTestCase("Case 8", "A1Q4", listOf("2999"), ExactMatchChecker("Silver")) worth 0.1,
         ArgsTestCase("Case 9", "A1Q4", listOf("800", "1"), ExactMatchChecker("Silver")) worth 0.1,
-        ArgsTestCase("Case 10", "A1Q4", listOf("2999", "2999", "2999", "2999"), ExactMatchChecker("Silver")) worth 0.1,
+        ArgsTestCase("Case 10", "A1Q4", listOf("2999", "2999", "2999", "2999"), ExactMatchChecker("Silver")) worth 0.1
 ))
 
 val a1q5 = Problem("A1Q5", testCases(
-        ArgsTestCase("Case 1", "A1Q5", listOf("12.5", "23", "11", "22.5", "32", "5"), ExactMatchChecker("16.5 26.5 36")) worth 0.2,
-        ArgsTestCase("Case 2", "A1Q5", listOf("6.5", "1.9", "1.4", "14.9", "14", "33.1"), ExactMatchChecker("19.9 19")) worth 0.2,
+        ArgsTestCase("Case 1", "A1Q5", listOf("12.5", "23", "11", "22.5", "32", "5"), ExactMatchChecker("16.5 26.5 36.0")) worth 0.2,
+        ArgsTestCase("Case 2", "A1Q5", listOf("6.5", "1.9", "1.4", "14.9", "14", "33.1"), ExactMatchChecker("19.9 19.0")) worth 0.2,
         ArgsTestCase("Case 3", "A1Q5", listOf("11.5", "21.2", "33.1", "11", "23.5", "31"), ExactMatchChecker("")) worth 0.2,
         ArgsTestCase("Case 4", "A1Q5", listOf("12.5", "19.9", "3.2", "2.2", "4.4", "24.5", "14.2"), ExactMatchChecker("16.5 6.2 9.4 29.5 19.2")) worth 0.2,
-        ArgsTestCase("Case 5", "A1Q5", listOf("11.5", "15.6", "22.5", "32.2", "2", "11.4", ""), ExactMatchChecker("3 \n26.5 36.2 6 ")) worth 0.1
-)
+        ArgsTestCase("Case 5", "A1Q5", listOf("11.5", "15.6", "22.5", "32.2", "2", "11.4"), ExactMatchChecker("26.5 36.2 6.0")) worth 0.2
+))

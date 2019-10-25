@@ -9,5 +9,8 @@
         <module name="java-judge" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-judge" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
