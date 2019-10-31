@@ -16,6 +16,9 @@ class CallMethodTestCase(
         private val inputParams: List<Any>,
         private val answerChecker: AnswerChecker
 ) : ReflectionTestCase(name, classNamesToCompile, classNameToCheck) {
+    init {
+        answerChecker.caseName = name
+    }
     @ExperimentalCoroutinesApi
     override fun checkClass(clazz: Class<*>): TestCaseJudgeResult =
             runBlocking {
@@ -25,7 +28,7 @@ class CallMethodTestCase(
                         val output = method.invoke(clazz, *inputParams.toTypedArray())
                         return@async output
                     }
-                    delay(2000L)
+                    delay(1000L)
                     if (!job.isCompleted) {
                         job.cancel()
                         return@runBlocking TestCaseJudgeResult(0.0, name, "Time out")

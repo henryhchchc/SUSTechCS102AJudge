@@ -3,9 +3,12 @@ package net.henryhc.sustech.javajudge.fall19.assignment2
 import net.henryhc.sustech.javajudge.answercheckers.ArrayChecker
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.answercheckers.RangeChecker
+import net.henryhc.sustech.javajudge.answercheckers.SpecialChecker
 import net.henryhc.sustech.javajudge.sakai.Problem
+import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 import net.henryhc.sustech.javajudge.testCases
 import net.henryhc.sustech.javajudge.testcases.classdesign.CallMethodTestCase
+import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
 import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
 import net.henryhc.sustech.javajudge.worth
 
@@ -32,14 +35,17 @@ val a2q1 = Problem("A2Q1", testCases(
 val q2c = arrayOf("3\n" +
         "11513333 1\n" +
         "11511111 3\n" +
-        "11512222 2", "1\n" +
-        "11610000 100", "6\n" +
+        "11512222 2",
+        "1\n" +
+        "11610000 100",
+        "6\n" +
         "11511111 11\n" +
         "11512222 12\n" +
         "11513333 13\n" +
         "11514444 14\n" +
         "11515555 15\n" +
-        "11516666 16", "10\n" +
+        "11516666 16",
+        "10\n" +
         "11511111 11\n" +
         "11512222 12\n" +
         "11513333 13\n" +
@@ -49,11 +55,12 @@ val q2c = arrayOf("3\n" +
         "11611111 11\n" +
         "11613333 33\n" +
         "11615555 55\n" +
-        "11616666 1000000000", "8\n" +
+        "11616666 1000000000",
+        "8\n" +
         "11511111 55\n" +
         "11512222 44\n" +
         "11516666 33\n" +
-        "11514444 11\n" +
+        "11514444 22\n" +
         "11515555 11\n" +
         "11513333 33\n" +
         "11517777 77\n" +
@@ -85,7 +92,7 @@ val q2a = arrayOf("11511111 3\n" +
                 "11516666 33\n" +
                 "11514444 22\n" +
                 "11515555 11\n" +
-                "11513333 33\n")
+                "11513333 33")
 val a2q2 = Problem("A2Q2", testCases(
         StdinTestCase("Case 1", "A2Q2", q2c[0], ExactMatchChecker(q2a[0])) worth 0.2,
         StdinTestCase("Case 2", "A2Q2", q2c[1], ExactMatchChecker(q2a[1])) worth 0.2,
@@ -478,3 +485,57 @@ val a2q5 = Problem("A2Q5", testCases(
         CallMethodTestCase("Method Case 11", setOf("A2Q5"), "A2Q5", "getAverage", listOf(Class.forName("[[I"), Integer.TYPE, Integer.TYPE), listOf(q5m2[7], 2, 0), RangeChecker(3.25, 3.25)) worth 1.0 / 16,
         CallMethodTestCase("Method Case 12", setOf("A2Q5"), "A2Q5", "getAverage", listOf(Class.forName("[[I"), Integer.TYPE, Integer.TYPE), listOf(q5m2[8], 2, 2), RangeChecker(4.0, 4.0)) worth 1.0 / 16
 ))
+
+fun mSquareTester(name:Any, size:Any ,square:Any) :TestCaseJudgeResult{
+    try {
+        val size = size.toString().toInt()
+        val name = name.toString()
+        val squareLine = square.toString().split('\n')
+        val square = mutableListOf<List<Int>>()
+        for (line in squareLine) {
+            val row = mutableListOf<Int>()
+            for (c in line.split(" \t,;:"))
+                row.add(c.toInt())
+            square.add(row)
+        }
+        val expectedSum = size * (size * size + 1) / 2
+        var numbers = emptySet<Int>()
+        for (row in square) {
+            var sum = 0
+            for (elem in row) {
+                sum += elem
+                numbers = numbers.plus(elem)
+            }
+            if (sum != expectedSum)
+                return TestCaseJudgeResult(0.0, name, "Not a magic square, the row sum should be $expectedSum instead of $sum")
+        }
+        for (i in 0..square.size - 1) {
+            var sum = 0
+            for (j in 0..square.size - 1) {
+                sum += square[j][i]
+            }
+            if (sum != expectedSum)
+                return TestCaseJudgeResult(0.0, name, "Not a magic square, the column sum should be $expectedSum instead of $sum")
+        }
+        var sum1 = 0
+        var sum2 = 0
+        for (i in 0..square.size - 1) {
+            sum1 += square[i][i]
+            sum2 += square[i][square.size - i - 1]
+        }
+        if (sum1 != expectedSum || sum2 != expectedSum)
+            return TestCaseJudgeResult(0.0, name, "Not a magic square, the diagonal sum should be $expectedSum instead of $sum1 and $sum2")
+        if (numbers.size != size * size)
+            return TestCaseJudgeResult(0.0, name, "Not a magic square, the size should be ${size * size} instead of ${numbers.size}")
+        return TestCaseJudgeResult(1.0, name, "Nice Work!")
+    } catch (e:Exception) {
+        return TestCaseJudgeResult(0.0, name as String, "Special judge failed with $e")
+    }
+}
+val a2q6 = Problem("A2Q6", testCases(
+        ArgsTestCase("Case 1", "A2Q6", listOf("3"), SpecialChecker(3, ::mSquareTester)) worth 0.2,
+        ArgsTestCase("Case 2", "A2Q6", listOf("13"), SpecialChecker(13, ::mSquareTester)) worth 0.2,
+        ArgsTestCase("Case 3", "A2Q6", listOf("53"), SpecialChecker(53, ::mSquareTester)) worth 0.2,
+        ArgsTestCase("Case 4", "A2Q6", listOf("77"), SpecialChecker(77, ::mSquareTester)) worth 0.2,
+        ArgsTestCase("Case 5", "A2Q6", listOf("99"), SpecialChecker(99, ::mSquareTester)) worth 0.2
+        ))
