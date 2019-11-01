@@ -494,7 +494,7 @@ fun mSquareTester(name:Any, size:Any ,square:Any) :TestCaseJudgeResult{
         val square = mutableListOf<List<Int>>()
         for (line in squareLine) {
             val row = mutableListOf<Int>()
-            for (c in line.split(" \t,;:"))
+            for (c in line.split(" ","\t",";",","))
                 row.add(c.toInt())
             square.add(row)
         }
