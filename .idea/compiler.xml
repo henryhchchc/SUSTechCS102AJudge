@@ -7,7 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java-judge" />
+        <module name="SUSTechCS102AJudge" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-judge" target="1.5" />
+      <module name="SUSTechCS102AJudge" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
