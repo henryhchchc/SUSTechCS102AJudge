@@ -1,8 +1,7 @@
 package net.henryhc.sustech.javajudge.fall19.assignment2
 
-import net.henryhc.sustech.javajudge.fall19.assignment2.*
-import net.henryhc.sustech.javajudge.problems
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.problems
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val problemsAssignment2 = problems(
         a2q1 worth 20.0,

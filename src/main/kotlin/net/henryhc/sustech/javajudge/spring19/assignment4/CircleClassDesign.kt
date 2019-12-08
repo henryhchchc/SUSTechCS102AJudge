@@ -1,12 +1,12 @@
 package net.henryhc.sustech.javajudge.spring19.assignment4
 
 import net.henryhc.sustech.javajudge.sakai.Problem
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.testcases.classdesign.FieldTestCase
-import net.henryhc.sustech.javajudge.testcases.classdesign.GetterTestCase
-import net.henryhc.sustech.javajudge.testcases.classdesign.MethodTestCase
-import net.henryhc.sustech.javajudge.testcases.classdesign.SetterTestCase
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.testcases.classdesign.FieldTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.classdesign.GetterTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.classdesign.MethodTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.classdesign.SetterTestCase
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val circleClassDesign = Problem("Circle class design", testCases(
         MethodTestCase("toString method", setOf("Course"),

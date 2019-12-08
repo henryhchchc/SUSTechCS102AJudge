@@ -10,7 +10,7 @@ fun CSVPrinter.printSubmissionResult(result: SubmissionJudgeResult) = printRecor
         result.submission.student.id,
         result.submission.student.name.split(", ")[0],
         result.submission.student.name.split(", ")[1],
-        if(result.score >= 90) String.format("%.1f", result.score) else "",
+        "%.2f".format(result.score),
         result.submission.timeStampStr,
         if (result.submission.isLateSubmission) sakaiI18n.lateSubmissionText else sakaiI18n.onTimeSubmissionText
 )

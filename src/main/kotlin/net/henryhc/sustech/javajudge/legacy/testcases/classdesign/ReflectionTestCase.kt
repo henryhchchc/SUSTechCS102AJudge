@@ -1,8 +1,8 @@
-package net.henryhc.sustech.javajudge.testcases.classdesign
+package net.henryhc.sustech.javajudge.legacy.testcases.classdesign
 
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 import java.net.URLClassLoader
 
 abstract class ReflectionTestCase(

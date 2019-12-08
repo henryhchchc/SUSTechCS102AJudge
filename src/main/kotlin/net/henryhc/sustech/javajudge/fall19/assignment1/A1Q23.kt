@@ -2,9 +2,9 @@ package net.henryhc.sustech.javajudge.fall19.assignment1
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testcases.io.StdinTestCase
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val q2c1 = "12 40 40\n" +
         "12 40 51"
@@ -81,5 +81,5 @@ val a1q3 = Problem("A1Q3", testCases(
         StdinTestCase("Case 3", "A1Q3", q3c3, ExactMatchChecker(q3a3)) worth 0.2,
         StdinTestCase("Case 4", "A1Q3", q3c4, ExactMatchChecker(q3a4)) worth 0.2,
         StdinTestCase("Case 5", "A1Q3", q3c5, ExactMatchChecker(q3a5)) worth 0.2
-        )
+)
 )

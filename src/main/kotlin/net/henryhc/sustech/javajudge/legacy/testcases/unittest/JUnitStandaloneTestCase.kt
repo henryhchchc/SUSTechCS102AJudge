@@ -1,17 +1,10 @@
-package net.henryhc.sustech.javajudge.testcases.unittest
+package net.henryhc.sustech.javajudge.legacy.testcases.unittest
 
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
-import net.henryhc.sustech.javajudge.testcases.TestCase
-import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
-import org.junit.platform.launcher.core.LauncherConfig
-import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder
-import org.junit.platform.launcher.core.LauncherFactory
-import org.junit.platform.launcher.listeners.SummaryGeneratingListener
-import org.junit.platform.launcher.listeners.TestExecutionSummary
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 import org.w3c.dom.Node
 import java.io.File
-import java.net.URLClassLoader
 import javax.xml.parsers.DocumentBuilderFactory
 
 class JUnitStandaloneTestCase(

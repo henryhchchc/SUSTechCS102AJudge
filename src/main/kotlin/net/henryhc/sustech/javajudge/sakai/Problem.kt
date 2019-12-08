@@ -1,6 +1,6 @@
 package net.henryhc.sustech.javajudge.sakai
 
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 
 class Problem(
         val name: String,

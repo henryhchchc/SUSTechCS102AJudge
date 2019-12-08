@@ -1,7 +1,7 @@
 package net.henryhc.sustech.javajudge.spring19.assignment3
 
-import net.henryhc.sustech.javajudge.problems
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.problems
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val problemsAssignment3 = problems(
         a3q1 worth 25.0,

@@ -2,9 +2,9 @@ package net.henryhc.sustech.javajudge.fall19.pretest1
 
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
 import net.henryhc.sustech.javajudge.sakai.Problem
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.testcases.io.ArgsTestCase
+import net.henryhc.sustech.javajudge.legacy.worth
 
 
 val a1q1 = Problem("A1Q1", testCases(

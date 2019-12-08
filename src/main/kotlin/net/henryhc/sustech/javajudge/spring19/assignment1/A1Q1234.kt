@@ -2,9 +2,9 @@ package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testcases.io.ArgsTestCase
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val a1q1 = Problem("A1Q1", testCases(
         ArgsTestCase("Case 1", "A1Q1", listOf("3"), ExactMatchChecker("18.84\n28.26")) worth 0.2,

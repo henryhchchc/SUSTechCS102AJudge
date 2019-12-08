@@ -2,8 +2,8 @@ package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
-import net.henryhc.sustech.javajudge.testCasesAverage
+import net.henryhc.sustech.javajudge.legacy.testcases.io.StdinTestCase
+import net.henryhc.sustech.javajudge.legacy.testCasesAverage
 
 
 private val m1 = arrayOf(

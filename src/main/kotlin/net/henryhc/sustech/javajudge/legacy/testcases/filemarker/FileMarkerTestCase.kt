@@ -1,8 +1,8 @@
-package net.henryhc.sustech.javajudge.testcases.filemarker
+package net.henryhc.sustech.javajudge.legacy.testcases.filemarker
 
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 
 class FileMarkerTestCase(
         name: String,

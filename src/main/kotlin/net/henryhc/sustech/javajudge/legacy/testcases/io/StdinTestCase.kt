@@ -1,11 +1,11 @@
-package net.henryhc.sustech.javajudge.testcases.io
+package net.henryhc.sustech.javajudge.legacy.testcases.io
 
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 import net.henryhc.sustech.javajudge.TimeLimit
 import net.henryhc.sustech.javajudge.answercheckers.AnswerChecker
 import net.henryhc.sustech.javajudge.programrunners.LocalProgramRunner
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 
 class StdinTestCase(
         name: String,

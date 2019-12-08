@@ -2,9 +2,9 @@ package net.henryhc.sustech.javajudge.fall19.assignment1
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testcases.io.ArgsTestCase
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val a1q1 = Problem("A1Q1", testCases(
         ArgsTestCase("Case 1", "A1Q1", listOf("张三", "11814585"), ExactMatchChecker("张三, welcome to SUSTECH Hot Pot Restaurant!")) worth 0.2,
@@ -12,7 +12,7 @@ val a1q1 = Problem("A1Q1", testCases(
         ArgsTestCase("Case 3", "A1Q1", listOf("Tom", "30123456"), ExactMatchChecker("30123456")) worth 0.2,
         ArgsTestCase("Case 4", "A1Q1", listOf("James", "11910101"), ExactMatchChecker("James, welcome to SUSTECH Hot Pot Restaurant!")) worth 0.2,
         ArgsTestCase("Case 5", "A1Q1", listOf("王二", "11212122"), ExactMatchChecker("11212122")) worth 0.2
-        ))
+))
 
 val a1q4 = Problem("A1Q4", testCases(
         ArgsTestCase("Case 1", "A1Q4", listOf("9000"), ExactMatchChecker("Diamond")) worth 0.1,

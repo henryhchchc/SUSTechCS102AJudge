@@ -1,6 +1,6 @@
-package net.henryhc.sustech.javajudge.testcases
+package net.henryhc.sustech.javajudge.legacy.testcases
 
-import net.henryhc.sustech.javajudge.Compiler
+import net.henryhc.sustech.javajudge.legacy.Compiler
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 

@@ -1,8 +1,8 @@
-package net.henryhc.sustech.javajudge.testcases.unittest
+package net.henryhc.sustech.javajudge.legacy.testcases.unittest
 
 import net.henryhc.sustech.javajudge.sakai.Submission
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 import org.junit.platform.launcher.core.LauncherConfig
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder

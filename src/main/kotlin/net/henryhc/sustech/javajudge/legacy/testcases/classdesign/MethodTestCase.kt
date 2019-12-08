@@ -1,4 +1,4 @@
-package net.henryhc.sustech.javajudge.testcases.classdesign
+package net.henryhc.sustech.javajudge.legacy.testcases.classdesign
 
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 import java.lang.reflect.Method

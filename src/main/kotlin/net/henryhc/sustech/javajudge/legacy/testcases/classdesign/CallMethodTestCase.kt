@@ -1,11 +1,10 @@
-package net.henryhc.sustech.javajudge.testcases.classdesign
+package net.henryhc.sustech.javajudge.legacy.testcases.classdesign
 
 import net.henryhc.sustech.javajudge.answercheckers.AnswerChecker
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
 import java.lang.reflect.InvocationTargetException
 import kotlinx.coroutines.*
 import java.lang.Thread.sleep
-import kotlin.concurrent.thread
 
 class CallMethodTestCase(
         name: String,

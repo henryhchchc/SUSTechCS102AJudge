@@ -1,4 +1,4 @@
-package net.henryhc.sustech.javajudge
+package net.henryhc.sustech.javajudge.legacy
 
 import java.io.File
 import java.io.StringWriter
@@ -13,7 +13,7 @@ class Compiler {
                 StringWriter(),
                 fileManager,
                 null,
-                null,
+                listOf("-cp", files.first().parentFile.absolutePath),
                 null,
                 compilationUnits
         ).call()

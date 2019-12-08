@@ -2,9 +2,9 @@ package net.henryhc.sustech.javajudge.spring19.assignment1
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testcases.io.StdinTestCase
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.worth
 
 private const val expectedOutput = """Enter the first number: Enter the second number: Sum of two numbers is 90
 Sum does not equal 100, loop repeats

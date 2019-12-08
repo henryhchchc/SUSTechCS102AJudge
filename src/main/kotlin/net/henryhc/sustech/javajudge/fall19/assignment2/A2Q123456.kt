@@ -6,11 +6,11 @@ import net.henryhc.sustech.javajudge.answercheckers.RangeChecker
 import net.henryhc.sustech.javajudge.answercheckers.SpecialChecker
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.sakai.TestCaseJudgeResult
-import net.henryhc.sustech.javajudge.testCases
-import net.henryhc.sustech.javajudge.testcases.classdesign.CallMethodTestCase
-import net.henryhc.sustech.javajudge.testcases.io.ArgsTestCase
-import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
-import net.henryhc.sustech.javajudge.worth
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.testcases.classdesign.CallMethodTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.io.ArgsTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.io.StdinTestCase
+import net.henryhc.sustech.javajudge.legacy.worth
 
 val q1c = arrayOf("1\n11510001 1 100000", "1\n11510001 2 100000 1", "2\n11510001 2 100000 1\n11510002 1 1", "2\n11610001 5 100 200 300 400 500\n11610002 1 101", "4\n11710303 3 100 230 100\n11612536 1 3000\n11810918 7 100 100 100 100 100 100 100\n11513003 2 10000 2000")
 val q1a = arrayOf("11510001 100000",
@@ -538,4 +538,4 @@ val a2q6 = Problem("A2Q6", testCases(
         ArgsTestCase("Case 3", "A2Q6", listOf("53"), SpecialChecker(53, ::mSquareTester)) worth 0.2,
         ArgsTestCase("Case 4", "A2Q6", listOf("77"), SpecialChecker(77, ::mSquareTester)) worth 0.2,
         ArgsTestCase("Case 5", "A2Q6", listOf("99"), SpecialChecker(99, ::mSquareTester)) worth 0.2
-        ))
+))

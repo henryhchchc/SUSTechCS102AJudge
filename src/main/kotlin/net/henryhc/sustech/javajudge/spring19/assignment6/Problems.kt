@@ -1,10 +1,13 @@
 package net.henryhc.sustech.javajudge.spring19.assignment6
 
-import net.henryhc.sustech.javajudge.*
+import net.henryhc.sustech.javajudge.legacy.problems
+import net.henryhc.sustech.javajudge.legacy.testCases
+import net.henryhc.sustech.javajudge.legacy.testCasesAverage
 import net.henryhc.sustech.javajudge.sakai.Problem
-import net.henryhc.sustech.javajudge.testcases.CompileTestCase
-import net.henryhc.sustech.javajudge.testcases.filemarker.FileMarkerTestCase
-import net.henryhc.sustech.javajudge.testcases.unittest.JUnitStandaloneTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.CompileTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.filemarker.FileMarkerTestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.unittest.JUnitStandaloneTestCase
+import net.henryhc.sustech.javajudge.legacy.worth
 
 private val compileProblem = Problem("Compilation (Not counted for score)", testCasesAverage(
         CompileTestCase("All files", setOf("ConcreteHotel", "Day", "Hotel", "LuxuryRoom", "OrdinaryRoom", "Room"))

@@ -1,7 +1,7 @@
-package net.henryhc.sustech.javajudge
+package net.henryhc.sustech.javajudge.legacy
 
 import net.henryhc.sustech.javajudge.sakai.Problem
-import net.henryhc.sustech.javajudge.testcases.TestCase
+import net.henryhc.sustech.javajudge.legacy.testcases.TestCase
 
 infix fun TestCase.worth(score: Double) = this to score
 infix fun Problem.worth(score: Double) = this to score

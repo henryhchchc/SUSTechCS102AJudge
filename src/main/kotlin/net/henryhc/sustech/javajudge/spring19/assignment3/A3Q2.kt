@@ -2,8 +2,8 @@ package net.henryhc.sustech.javajudge.spring19.assignment3
 
 import net.henryhc.sustech.javajudge.sakai.Problem
 import net.henryhc.sustech.javajudge.answercheckers.ExactMatchChecker
-import net.henryhc.sustech.javajudge.testcases.io.StdinTestCase
-import net.henryhc.sustech.javajudge.testCasesAverage
+import net.henryhc.sustech.javajudge.legacy.testcases.io.StdinTestCase
+import net.henryhc.sustech.javajudge.legacy.testCasesAverage
 
 val a3q2 = Problem("A3Q2", testCasesAverage(
         StdinTestCase("Case 1", "A3Q2", "11\n1 3 2 1 4 3 4 0 2 1 0", ExactMatchChecker("6")),
