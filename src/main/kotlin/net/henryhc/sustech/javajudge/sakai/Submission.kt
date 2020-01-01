@@ -21,7 +21,7 @@ class Submission(
             }
 
     fun writeFeedback(feedback: String, score: String) = File(path, FeedbackFileName).writeText(
-            "<span style=\"color: red;\">Your Score is $score</span>\n<code>$feedback</code>".replace(" ", "&nbsp;"),
+            "<code>${feedback.replace("<","&lt;").replace(">","&gt;")}</code>".replace(" ", "&nbsp;"),
             Charsets.UTF_8
     )
 

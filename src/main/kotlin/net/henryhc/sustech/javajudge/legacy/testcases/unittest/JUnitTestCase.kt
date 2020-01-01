@@ -16,9 +16,7 @@ class JUnitTestCase(
         private val testClassName: String
 ) : TestCase(name) {
     override fun judge(submission: Submission): TestCaseJudgeResult {
-        val config = LauncherConfig.builder()
-                .build()
-        val launcher = LauncherFactory.create(config)
+        val launcher = LauncherFactory.create()
         val summary = submission.attachmentsDirectory.toURI().toURL()
                 .let { URLClassLoader(arrayOf(it)) }
                 .loadClass(testClassName)

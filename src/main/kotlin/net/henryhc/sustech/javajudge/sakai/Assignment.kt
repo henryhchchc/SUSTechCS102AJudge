@@ -35,13 +35,17 @@ class Assignment(
     }
 
     fun judge(beforeEachJudge: (Submission) -> Unit = {}) = this.submissions.map {
-        GlobalScope.async {
-            channel.receive()
-            (it to it.judge(problemsWithScoreMap, beforeEachJudge)).apply {
-                channel.send(1)
-            }
-        }
-    }.map { runBlocking { it.await() } }.toMap()
+       it to it.judge(problemsWithScoreMap, beforeEachJudge)
+    }.toMap()
+
+//    fun judge(beforeEachJudge: (Submission) -> Unit = {}) = this.submissions.map {
+//        GlobalScope.async {
+//            channel.receive()
+//            (it to it.judge(problemsWithScoreMap, beforeEachJudge)).apply {
+//                channel.send(1)
+//            }
+//        }
+//    }.map { runBlocking { it.await() } }.toMap()
 
     fun writeGradeCsv(results: List<SubmissionJudgeResult>) = StringWriter().apply {
         CSVPrinter(this, csvFormat).run {
